@@ -30,8 +30,6 @@ type
     Line3: TLine;
     Line1: TLine;
     Line2: TLine;
-    Rectangle1: TRectangle;
-    Rectangle2: TRectangle;
     procedure bt1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -213,51 +211,75 @@ begin
 
   if MOMENTO <> 10 then
   begin
-    if (bt1.Text = bt2.Text) and (bt2.Text = bt3.Text) and (not (bt1.Text.IsEmpty and bt2.Text.IsEmpty and bt3.Text.IsEmpty))then
+    if (bt1.Text = bt2.Text) and (bt2.Text = bt3.Text) then
     begin
-      VerificarGanhadorHorizontal1;
+      if not (bt1.Text.IsEmpty and bt2.Text.IsEmpty and bt3.Text.IsEmpty) then
+      begin
+        VerificarGanhadorHorizontal1;
+      end;
     end
     else
     begin
-      if (bt4.Text = bt5.Text) and (bt5.Text = bt6.Text) and (not (bt4.Text.IsEmpty and bt5.Text.IsEmpty and bt6.Text.IsEmpty)) then
+      if (bt4.Text = bt5.Text) and (bt5.Text = bt6.Text) then
       begin
-        VerificarGanhadorHorizontaL2;
+        if not (bt4.Text.IsEmpty and bt5.Text.IsEmpty and bt6.Text.IsEmpty) then
+        begin
+          VerificarGanhadorHorizonta2;
+        end;
       end
       else
       begin
-        if (bt7.Text = bt8.Text) and (bt8.Text = bt9.Text) and (not (bt7.Text.IsEmpty and bt8.Text.IsEmpty and bt9.Text.IsEmpty)) then
+        if (bt7.Text = bt8.Text) and (bt8.Text = bt9.Text) then
         begin
-          VerificarGanhadorHorizontaL3;
+          if not (bt7.Text.IsEmpty and bt8.Text.IsEmpty and bt9.Text.IsEmpty) then
+          begin
+            VerificarGanhadorHorizonta3;
+          end;
         end
         else
         begin
-          if (bt1.Text = bt4.Text) and (bt4.Text = bt7.Text) and (not (bt1.Text.IsEmpty and bt4.Text.IsEmpty and bt7.Text.IsEmpty)) then
+          if (bt1.Text = bt4.Text) and (bt4.Text = bt7.Text) then
           begin
-            VerificarGanhadorVertical1;
+            if not (bt1.Text.IsEmpty and bt4.Text.IsEmpty and bt7.Text.IsEmpty) then
+            begin
+              VerificarGanhadorVertical1;
+            end;
           end
           else
           begin
-            if (bt2.Text = bt5.Text) and (bt5.Text = bt8.Text) and (not (bt2.Text.IsEmpty and bt5.Text.IsEmpty and bt8.Text.IsEmpty))then
+            if (bt2.Text = bt5.Text) and (bt5.Text = bt8.Text) then
             begin
-              VerificarGanhadorVerticaL2;
+              if not (bt2.Text.IsEmpty and bt5.Text.IsEmpty and bt8.Text.IsEmpty) then
+              begin
+                VerificarGanhadorVertica2;
+              end;
             end
             else
             begin
-              if (bt3.Text = bt6.Text) and (bt6.Text = bt9.Text) and (not (bt3.Text.IsEmpty and bt6.Text.IsEmpty and bt9.Text.IsEmpty))then
+              if (bt3.Text = bt6.Text) and (bt6.Text = bt9.Text) then
               begin
-                VerificarGanhadorVerticaL3;
+                if not (bt3.Text.IsEmpty and bt6.Text.IsEmpty and bt9.Text.IsEmpty) then
+                begin
+                  VerificarGanhadorVertica3;
+                end;
               end
               else
               begin
-                if (bt3.Text = bt5.Text) and (bt5.Text = bt7.Text) and (not (bt3.Text.IsEmpty and bt5.Text.IsEmpty and bt7.Text.IsEmpty)) then
+                if (bt3.Text = bt5.Text) and (bt5.Text = bt7.Text) then
                 begin
-                  VerificarGanhadorDiagonal;
+                  if not (bt3.Text.IsEmpty and bt5.Text.IsEmpty and bt7.Text.IsEmpty) then
+                  begin
+                    VerificarGanhadorDiagonal;
+                  end;
                 end
                 else
                 begin
-                  if (bt1.Text = bt5.Text) and (bt5.Text = bt9.Text) and (not (bt1.Text.IsEmpty and bt5.Text.IsEmpty and bt9.Text.IsEmpty)) then
+                  if (bt1.Text = bt5.Text) and (bt5.Text = bt9.Text) then
                   begin
-                    VerificarGanhadorDiagonal;
+                    if not (bt1.Text.IsEmpty and bt5.Text.IsEmpty and bt9.Text.IsEmpty) then
+                    begin
+                      VerificarGanhadorDiagonal;
+                    end;
                   end;
                 end;
               end;
@@ -272,5 +294,31 @@ begin
       ShowMessage('VELHA');
       LimparBotoes;
     end;
+
+  {if (MOMENTO <>  9) then
+    begin
+      if not ((bt1.Text.IsEmpty) or (bt2.Text.IsEmpty) or (bt3.Text.IsEmpty) or (bt4.Text.IsEmpty) or (bt5.Text.IsEmpty) or (bt6.Text.IsEmpty) or (bt7.Text.IsEmpty) or (bt8.Text.IsEmpty) or (bt9.Text.IsEmpty) )then
+      begin
+        if ((bt1.Text = bt2.Text) and (bt2.Text = bt3.Text)) or ((bt4.Text = bt5.Text) and (bt5.Text = bt6.Text)) or ((bt7.Text = bt8.Text) and (bt8.Text = bt9.Text))then
+        begin
+          if (bt1.Text = 'X') or (bt4.Text = 'X') or (bt7.Text = 'X') then
+          begin
+            ShowMessage('Jogador X ganhou!');
+            Exit;
+          end
+          else
+          begin
+            ShowMessage('Jogador O ganhou!');
+          end;
+        end;
+      end
+      //else
+       // ShowMessage('Velha');
+    end
+    else
+    begin
+      ShowMessage('VELHA')
+    end;
+    }
 end;
 end.
