@@ -39,17 +39,9 @@ type
   public
     { Public declarations }
     procedure VerificarVelha;
-    procedure VerificarGanhadorHorizontal1;
-    procedure VerificarGanhadorHorizontal2;
-    procedure VerificarGanhadorHorizontal3;
-    procedure VerificarGanhadorVertical1;
-    procedure VerificarGanhadorVertical2;
-    procedure VerificarGanhadorVertical3;
-    procedure VerificarGanhadorDiagonal;
+    procedure VerificarGanhador(botao: TButton);
     procedure LimparBotoes;
-
   end;
-
 var
   Form1: TForm1;
   VEZ : String;
@@ -96,116 +88,10 @@ begin
   MOMENTO  := 0;
 end;
 
-procedure TForm1.VerificarGanhadorVertical1;
+procedure TForm1.VerificarGanhador(botao: TButton);
 begin
-  if (bt1.Text = 'X')  then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorVertical2;
-begin
-  if (bt2.Text = 'X')  then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorVertical3;
-begin
-  if (bt3.Text = 'X')  then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorDiagonal;
-begin
-  if  (bt5.Text = 'X') then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorHorizontal1;
-begin
-  if (bt1.Text = 'X') then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorHorizontal2;
-begin
-  if (bt4.Text = 'X') then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
-end;
-
-procedure TForm1.VerificarGanhadorHorizontal3;
-begin
-  if (bt7.Text = 'X') then
-  begin
-    ShowMessage('Jogador X ganhou!');
-    LimparBotoes;
-    Exit;
-  end
-  else
-  begin
-    ShowMessage('Jogador O ganhou!');
-    LimparBotoes;
-    Exit;
-  end;
+  ShowMessage('Jogador ' + botao.Text + ' ganhou!');
+  LimparBotoes;
 end;
 
 procedure TForm1.VerificarVelha;
@@ -215,49 +101,49 @@ begin
   begin
     if (bt1.Text = bt2.Text) and (bt2.Text = bt3.Text) and (not (bt1.Text.IsEmpty and bt2.Text.IsEmpty and bt3.Text.IsEmpty))then
     begin
-      VerificarGanhadorHorizontal1;
+      VerificarGanhador(bt1);
     end
     else
     begin
       if (bt4.Text = bt5.Text) and (bt5.Text = bt6.Text) and (not (bt4.Text.IsEmpty and bt5.Text.IsEmpty and bt6.Text.IsEmpty)) then
       begin
-        VerificarGanhadorHorizontaL2;
+        VerificarGanhador(bt4);
       end
       else
       begin
         if (bt7.Text = bt8.Text) and (bt8.Text = bt9.Text) and (not (bt7.Text.IsEmpty and bt8.Text.IsEmpty and bt9.Text.IsEmpty)) then
         begin
-          VerificarGanhadorHorizontaL3;
+          VerificarGanhador(bt7);
         end
         else
         begin
           if (bt1.Text = bt4.Text) and (bt4.Text = bt7.Text) and (not (bt1.Text.IsEmpty and bt4.Text.IsEmpty and bt7.Text.IsEmpty)) then
           begin
-            VerificarGanhadorVertical1;
+            VerificarGanhador(bt1);
           end
           else
           begin
             if (bt2.Text = bt5.Text) and (bt5.Text = bt8.Text) and (not (bt2.Text.IsEmpty and bt5.Text.IsEmpty and bt8.Text.IsEmpty))then
             begin
-              VerificarGanhadorVerticaL2;
+              VerificarGanhador(bt2);
             end
             else
             begin
               if (bt3.Text = bt6.Text) and (bt6.Text = bt9.Text) and (not (bt3.Text.IsEmpty and bt6.Text.IsEmpty and bt9.Text.IsEmpty))then
               begin
-                VerificarGanhadorVerticaL3;
+                VerificarGanhador(bt3);
               end
               else
               begin
                 if (bt3.Text = bt5.Text) and (bt5.Text = bt7.Text) and (not (bt3.Text.IsEmpty and bt5.Text.IsEmpty and bt7.Text.IsEmpty)) then
                 begin
-                  VerificarGanhadorDiagonal;
+                  VerificarGanhador(bt5);
                 end
                 else
                 begin
                   if (bt1.Text = bt5.Text) and (bt5.Text = bt9.Text) and (not (bt1.Text.IsEmpty and bt5.Text.IsEmpty and bt9.Text.IsEmpty)) then
                   begin
-                    VerificarGanhadorDiagonal;
+                    VerificarGanhador(bt5);
                   end;
                 end;
               end;

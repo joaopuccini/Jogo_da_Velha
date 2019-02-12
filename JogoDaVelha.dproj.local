@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2019/02/11 11:15:23.598,=C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2019/02/11 11:16:57.438,C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\uMain.fmx=C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>2019/02/11 11:16:57.438,C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\uMain.pas=C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2019/02/11 11:17:24.382,C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\JogoDaVelha.dproj=C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>2019/02/11 11:15:23.000.598,=C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/02/11 11:16:57.000.438,C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\uMain.pas</Transaction>
+    <Transaction>2019/02/11 11:16:57.000.438,C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\uMain.fmx</Transaction>
+    <Transaction>2019/02/11 11:17:24.000.382,C:\Users\Joao Pedro\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Joao Pedro\Desktop\MemoCash DEV\jogo da veia\JogoDaVelha.dproj</Transaction>
   </Transactions>
-  <ActiveMobileDevice>   <NoProfile iOSSimulator="iPhone5"/>
-  </ActiveMobileDevice>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
 </BorlandProject>
