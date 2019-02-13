@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.StdCtrls, FMX.Layouts, FMX.Controls.Presentation;
+  FMX.StdCtrls, FMX.Layouts, FMX.Controls.Presentation, FMX.Edit;
 
 type
   TForm1 = class(TForm)
@@ -32,8 +32,25 @@ type
     Line2: TLine;
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
+    LayoutResetEInformacoes: TLayout;
+    btReset: TButton;
+    lbVitorias: TLabel;
+    lbX: TLabel;
+    edtX: TEdit;
+    LayoutVitorias: TLayout;
+    LayoutCabecalhoVitoria: TLayout;
+    LayoutX: TLayout;
+    LayoutO: TLayout;
+    edtO: TEdit;
+    lbO: TLabel;
+    Button1: TButton;
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Layout3: TLayout;
     procedure bt1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btResetClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,11 +58,14 @@ type
     procedure VerificarVelha;
     procedure VerificarGanhador(botao: TButton);
     procedure LimparBotoes;
+    procedure LimparBotoesAll;
   end;
 var
   Form1: TForm1;
   VEZ : String;
   MOMENTO : Integer;
+  PONTO_X : Integer;
+  PONTO_O : Integer;
 
 implementation
 
@@ -68,10 +88,22 @@ begin
 
 end;
 
+procedure TForm1.btResetClick(Sender: TObject);
+begin
+  LimparBotoes;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  LimparBotoesAll;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   VEZ := 'X';
   MOMENTO := 0;
+  PONTO_X := 0;
+  PONTO_O := 0;
 end;
 
 procedure TForm1.LimparBotoes;
@@ -86,11 +118,44 @@ begin
   bt8.Text := '';
   bt9.Text := '';
   MOMENTO  := 0;
+  VEZ := 'X';
+end;
+
+
+procedure TForm1.LimparBotoesAll;
+begin
+  bt1.Text := '';
+  bt2.Text := '';
+  bt3.Text := '';
+  bt4.Text := '';
+  bt5.Text := '';
+  bt6.Text := '';
+  bt7.Text := '';
+  bt8.Text := '';
+  bt9.Text := '';
+  edtX.Text:= '';
+  edtO.Text:= '';
+  MOMENTO  := 0;
+  PONTO_X  := 0;
+  PONTO_O  := 0;
+  VEZ := 'X';
 end;
 
 procedure TForm1.VerificarGanhador(botao: TButton);
 begin
   ShowMessage('Jogador ' + botao.Text + ' ganhou!');
+  if botao.Text = 'X' then
+   begin
+     PONTO_X := PONTO_X + 1;
+     edtX.Text := IntToStr(PONTO_X);
+   end
+   else
+   begin
+     PONTO_O := PONTO_O + 1;
+     edtO.Text := IntToStr(PONTO_O);
+   end;
+
+  VEZ := 'X';
   LimparBotoes;
 end;
 
@@ -145,6 +210,11 @@ begin
                   begin
                     VerificarGanhador(bt5);
                   end;
+                end;
+                if MOMENTO = 9 then
+                begin
+                  ShowMessage('VELHA');
+                  LimparBotoes;
                 end;
               end;
             end;
