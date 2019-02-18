@@ -12,12 +12,15 @@ object Form1: TForm1
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object pPrincipal: TLayout
     Align = Client
+    Enabled = False
     Size.Width = 330.000000000000000000
     Size.Height = 350.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 0
     object Rectangle2: TRectangle
       Align = Client
@@ -52055,11 +52058,11 @@ object Form1: TForm1
         end
         item
           Color = xFF7585BB
-          Offset = 0.350931674242019700
+          Offset = 0.350931674242019600
         end
         item
           Color = xFFE0B06B
-          Offset = 0.642857134342193600
+          Offset = 0.642857134342193700
         end
         item
           Color = xFFE47E1D
@@ -52176,11 +52179,9 @@ object Form1: TForm1
   end
   object pRanking: TLayout
     Align = Client
-    Enabled = False
     Size.Width = 330.000000000000000000
     Size.Height = 350.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 2
     object Rectangle5: TRectangle
       Align = Client
@@ -52217,230 +52218,47 @@ object Form1: TForm1
         TabOrder = 0
         object LayoutListaJogadores: TLayout
           Align = Top
-          Position.Y = 50.000000000000000000
+          Position.Y = 81.000000000000000000
           Size.Width = 330.000000000000000000
           Size.Height = 260.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object LayoutID3: TLayout
-            Align = Top
-            Margins.Top = 10.000000000000000000
-            Position.Y = 110.000000000000000000
+          object lvRanking: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            Align = Client
             Size.Width = 330.000000000000000000
-            Size.Height = 40.000000000000000000
+            Size.Height = 260.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object lbID3: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 10.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 10.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 63.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              TextSettings.HorzAlign = Center
-              Text = '#3 - '
-            end
-            object lbJogador3: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 10.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 83.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 198.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              Text = 'jogador'
-            end
-          end
-          object LayoutID4: TLayout
-            Align = Top
-            Margins.Top = 10.000000000000000000
-            Position.Y = 160.000000000000000000
-            Size.Width = 330.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object lbID4: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 10.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 10.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 63.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              TextSettings.HorzAlign = Center
-              Text = '#4 - '
-            end
-            object lbJogador4: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 10.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 83.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 198.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              Text = 'jogador'
-            end
-          end
-          object LayoutID2: TLayout
-            Align = Top
-            Margins.Top = 10.000000000000000000
-            Position.Y = 60.000000000000000000
-            Size.Width = 330.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 2
-            object lbID2: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 10.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 10.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 63.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              TextSettings.HorzAlign = Center
-              Text = '#2 - '
-            end
-            object lbJogador2: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 10.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 83.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 198.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              Text = 'jogador'
-            end
-          end
-          object LayoutID1: TLayout
-            Align = Top
-            Margins.Top = 10.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 330.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 3
-            object lbID1: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 10.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 10.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 63.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              TextSettings.HorzAlign = Center
-              Text = '#1 - '
-            end
-            object lbJogador1: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 10.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 83.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 198.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              Text = 'jogador'
-            end
-          end
-          object LayoutID5: TLayout
-            Align = Top
-            Margins.Top = 10.000000000000000000
-            Position.Y = 210.000000000000000000
-            Size.Width = 330.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 4
-            object lbID5: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 10.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 10.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 63.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              TextSettings.HorzAlign = Center
-              Text = '#5 - '
-            end
-            object lbJogador5: TLabel
-              Align = Left
-              StyledSettings = [FontColor]
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 10.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.X = 83.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 198.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Roboto'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.Font.StyleExt = {00050000000100000004000000}
-              Text = 'jogador'
-            end
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'posicao'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 39.000000000000000000
+                Appearance.Height = 44.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'jogador'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 161.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 54.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'vitorias'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 38.000000000000000000
+                Appearance.Height = 44.000000000000000000
+                Appearance.PlaceOffset.X = 238.000000000000000000
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+              end>
           end
         end
         object lbCabecalhoRanking: TLabel
@@ -52458,15 +52276,58 @@ object Form1: TForm1
         object lbRodaPeVoltar: TLabel
           Align = Bottom
           StyledSettings = [FontColor]
-          Position.Y = 320.000000000000000000
+          Position.Y = 312.000000000000000000
           Size.Width = 330.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Height = 38.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Roboto'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {04020000000000000004000000}
           TextSettings.HorzAlign = Center
           Text = 'Tecle [ESC] para voltar'
+        end
+        object Layout3: TLayout
+          Align = Top
+          Position.Y = 50.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lbName: TLabel
+            Align = Left
+            StyledSettings = [FontColor]
+            Position.X = 120.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 31.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Roboto'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {04020000000000000004000000}
+            Text = 'Name'
+          end
+          object lbPosition: TLabel
+            Align = Left
+            StyledSettings = [FontColor]
+            Size.Width = 120.000000000000000000
+            Size.Height = 31.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Roboto'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {04020000000000000004000000}
+            Text = 'Position'
+          end
+          object Label4: TLabel
+            Align = Left
+            StyledSettings = [FontColor]
+            Position.X = 240.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 31.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Roboto'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {04020000000000000004000000}
+            Text = 'Vit'#243'rias'
+          end
         end
       end
     end
@@ -55350,5 +55211,66 @@ object Form1: TForm1
       'DriverID=MySQL')
     Left = 8
     Top = 298
+  end
+  object cdsRanking: TClientDataSet
+    PersistDataPacket.Data = {
+      570000009619E0BD010000001800000003000000000003000000570007706F73
+      6963616F0400010000000000076A6F6761646F72010049000000010005574944
+      5448020002001400087669746F7269617304000100000000000000}
+    Active = True
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'posicao'
+        DataType = ftInteger
+      end
+      item
+        Name = 'jogador'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'vitorias'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    StoreDefs = True
+    Left = 192
+    Top = 298
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = cdsRanking
+    ScopeMappings = <>
+    Left = 232
+    Top = 296
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 276
+    Top = 293
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = lvRanking
+      Track = True
+      FillDataSource = BindSourceDB1
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'posicao'
+          ControlMemberName = 'posicao'
+        end
+        item
+          SourceMemberName = 'jogador'
+          ControlMemberName = 'jogador'
+        end
+        item
+          SourceMemberName = 'vitorias'
+          ControlMemberName = 'vitorias'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
   end
 end

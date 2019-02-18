@@ -64,22 +64,7 @@ type
     lbCabeclaho: TLabel;
     pRanking: TLayout;
     lbCabecalhoRanking: TLabel;
-    lbID3: TLabel;
     lbRodaPeVoltar: TLabel;
-    LayoutID3: TLayout;
-    lbJogador3: TLabel;
-    LayoutID4: TLayout;
-    lbID4: TLabel;
-    lbJogador4: TLabel;
-    LayoutID2: TLayout;
-    lbID2: TLabel;
-    lbJogador2: TLabel;
-    LayoutID1: TLayout;
-    lbID1: TLabel;
-    lbJogador1: TLabel;
-    LayoutID5: TLayout;
-    lbID5: TLabel;
-    lbJogador5: TLabel;
     LayoutListaJogadores: TLayout;
     LayoutRankingGeral: TLayout;
     Rectangle5: TRectangle;
@@ -97,6 +82,15 @@ type
     conexao: TFDConnection;
     lbNomeX: TLabel;
     lbNomeO: TLabel;
+    lvRanking: TListView;
+    cdsRanking: TClientDataSet;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkFillControlToField1: TLinkFillControlToField;
+    Layout3: TLayout;
+    lbName: TLabel;
+    lbPosition: TLabel;
+    Label4: TLabel;
     procedure bt1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btRestartClick(Sender: TObject);
@@ -108,6 +102,7 @@ type
     procedure VerificarBotao(Sender: TButton);
     procedure LetrasGrandes(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -122,6 +117,7 @@ type
     procedure VerificarJogadores;
     function VerificarNoBanco(nome:String): Integer;
     procedure CadastrarNoBanco(nome:String);
+    procedure CarregarRanking;
 
   end;
 var
@@ -183,6 +179,7 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 begin
   SetEstadoForm(Ranking);
+
 end;
 
 procedure TForm1.CadastrarNoBanco(nome: String);
@@ -205,6 +202,42 @@ begin
   FreeAndNil(Qry);
 end;
 
+procedure TForm1.CarregarRanking;
+var
+  Qry      : TFDQuery;
+  POSITION : Integer;
+begin
+  Qry := TFDQuery.Create(nil);
+  cdsRanking.EmptyDataSet;
+  POSITION := 1;
+
+  with Qry do
+  begin
+    Connection := conexao;
+
+    Sql.Add('SELECT nome, qtd_vitorias FROM memocash.jogadores_ranking ORDER BY qtd_vitorias DESC');
+
+    Open;
+      while not EOF do
+      begin
+        cdsRanking.Insert;
+        cdsRanking.FieldByName('posicao').AsInteger := POSITION;
+        cdsRanking.FieldByName('jogador').AsString   := FieldByName('nome').AsString;
+        cdsRanking.FieldByName('vitorias').AsInteger := FieldByName('qtd_vitorias').AsInteger;
+        cdsRanking.Post;
+        Next;
+        POSITION := POSITION + 1;
+      end;
+    Close;
+
+  end;
+
+  cdsRanking.Close;
+  cdsRanking.Open;
+
+  FreeAndNil(Qry);
+end;
+
 procedure TForm1.EscExecute(Sender: TObject);
 begin
   case fEstadoForm  of
@@ -217,6 +250,12 @@ begin
     Ranking:
       SetEstadoForm(Principal);
   end;
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if fEstadoForm <> SelecionarJogador then
+    btnResetClick(Sender);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -349,6 +388,7 @@ begin
       pRanking.Enabled := true;
       pRanking.Visible := true;
       pRanking.BringToFront;
+      CarregarRanking;
     end;
   end;
 
